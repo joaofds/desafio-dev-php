@@ -2,7 +2,7 @@
 
 Estamos muito felizes que você tenha chegado nessa etapa do nosso processo seletivo, para essa fase, desejamos que você resolva um desafio.
 
-O objetivo é criar uma API para uma aplicação já existente de cadastro de assembleias.
+O objetivo é criar uma API para uma aplicação já existente de cadastro de clientes.
 
 #### Requisitos
 
@@ -14,7 +14,7 @@ Esses requisitos não são obrigatórios, mas serão levados em consideração c
 
 - Ter uma boa cobertura de código
 - Organizar estrutura do projeto utilizando padrões de projetos
-- Criar um front-end para consumir a api.
+- Criar um front-end para consumir a api de listagem.
 
 #### Critérios de avaliação
 
@@ -34,25 +34,22 @@ Bom trabalho!
 ## Documentação
 ----
 
-**Agenda Mail**
+**Assembleia de Condomínio**
 ----
 
-Aplicação para troca de mensagens entre usuários.
+Aplicação para controlar cadastro de clientes.
 
-Possui usuario master, que pode visualizar todas as mensangens, inclusive arquivadas.
+Dados para cadastrar um cliente são:
 
-Usuario Master:
+Nome
 
-email: master@email.com
+email
 
-password: 123456
+telefone
 
 #### Setup
 
-```
-bundle install
-bundle exec rails db:setup
-```
+Utilizar a linguagem PHP com framework ou sem framework.
 
 **API**
 ----
@@ -63,49 +60,42 @@ bundle exec rails db:setup
 
   `/api/v1`
 
-* **Required**
-
-  `Authorization=[string]` user's token send in header request. Get your token in profile page
-
-  It's a constant value for master token
-
 ----
 
-* **Messages**
+* **Get All Clientes**
 
-    `GET` | `/messages`
+    `GET` | `/clientes`
+    example: curl --location --request GET 'http://localhost:8000/api/v1/clientes'
+    
+* **Create Clientes**
 
-    example: `curl '/api/v1/messages' -H 'Authorization: xxx'`
+  `POST` | `/clientes` 
+  
+  example:
+  curl --location --request POST 'http://localhost:8000/api/v1/clientes' \
+  --header 'Content-Type: application/json' \
+  --data-raw '{
+    "nome":"Uzer",
+    "email": "uzer@uzer.com",
+    "telefone": 6284169052
+  }'
+  
+* **Show Clientes**
 
-* **Create Message**
+  `GET` | `/clientes/:id`
+  example: 
+  curl --location --request GET 'http://localhost:8000/api/v1/clientes/1'
+  
+* **Update Cliente**
 
-  `POST` | `/messages` | `message[title]=string&message[content]=string`
+  `PATCH` | `/clientes/:id`
 
-  example: `curl -X POST '/api/v1/messages' -H 'Authorization: xxx' -d 'message[receiver_email]=matheus@email.com&message[title]=APITEST&message[content]=CONTEUDO'`
-
-* **Sent**
-
-    `GET` | `/messages/sent`
-
-    example: `curl '/api/v1/messages/sent' -H 'Authorization: xxx'`
-
-* **Show Message**
-
-  `GET` | `/messages/:id`
-
-  example: `curl '/api/v1/messages/1' -H 'Authorization: xxx'`
-
-  OR `curl '/api/v1/messages/1' -H 'Authorization: xxx'`
-
-* **Show Profile**
-
-`GET` | `/profile`
-
-example: `curl '/api/v1/profile' -H 'Authorization: xxx'`
-
-* **Update Profile**
-
-  `PATCH` | `/profile` | `user[name]=string&user[email]=string&user[password]=string&user[password_confirmation]=string`
-
-  example: `curl -g -X PATCH '/api/v1/profile?user[name]=Mateus' -H 'Authorization: xxx'`
+  example: 
+  curl --location --request PUT 'http://localhost:8000/api/v1/clientes/2' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+	"nome":"Uzer",
+  "email": "uzer@uzer.com",
+   "telefone": 6284169052
+}'
 
