@@ -67,7 +67,7 @@ Utilizar a linguagem PHP com framework ou sem framework.
     `GET` | `/clientes`
     example: curl --location --request GET 'http://localhost:8000/api/v1/clientes'
     
-* **Create Clientes**
+* **Create Cliente**
 
   `POST` | `/clientes` 
   
