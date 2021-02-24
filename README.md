@@ -34,7 +34,7 @@ Bom trabalho!
 ## Documentação
 ----
 
-**Assembleia de Condomínio**
+**CRM UZER TECOLOGIA**
 ----
 
 Aplicação para controlar cadastro de clientes.
@@ -43,9 +43,9 @@ Dados para cadastrar um cliente são:
 
 Nome
 
-email
+Email
 
-telefone
+Telefone
 
 #### Setup
 
